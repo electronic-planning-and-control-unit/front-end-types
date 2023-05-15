@@ -12,7 +12,7 @@ export enum ApplicationErrorCode {
   UserNotRegistered = 1006,
 }
 
-export type IOrder = IOrderInfoDto & { id: number; createdAt: string };
+export type IOrder = IOrderInfoDto & { id: number; createdAt: string; numberOfRowChanges: number };
 
 export interface IOrderInfoDto {
   orderNeedsAttention?: boolean;

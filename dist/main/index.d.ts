@@ -13,6 +13,7 @@ export declare enum ApplicationErrorCode {
 export declare type IOrder = IOrderInfoDto & {
     id: number;
     createdAt: string;
+    numberOfRowChanges: number;
 };
 export interface IOrderInfoDto {
     orderNeedsAttention?: boolean;
