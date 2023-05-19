@@ -14,8 +14,13 @@ export declare type IOrder = IOrderInfoDto & {
     id: number;
     createdAt: string;
     numberOfRowChanges: number;
+    scheduled: boolean;
 };
 export interface IOrderInfoDto {
+    completed: boolean;
+    /** @format date-time */
+    releasedToWarehouseAt?: string;
+    comment?: string;
     orderNeedsAttention?: boolean;
     orderOrderNumber?: string;
     /** @format date-time */
@@ -80,9 +85,6 @@ export interface IOrderInfoDto {
     externalCooperationArrivedIntoWarehouse?: boolean;
     /** @format date-time */
     externalCooperationArrivedIntoWarehouseAt?: string;
-    /** @format date-time */
-    releasedToWarehouseAt?: string;
-    releaseToWarehouseComment?: string;
 }
 export declare enum OrderStatus {
     NotPlanned = 1,
@@ -99,5 +101,46 @@ export interface ICreateTopicResponse {
 }
 export declare type ICreateOrderRequest = IOrderInfoDto & object;
 export declare type IUpdateOrderCommand = IOrderInfoDto & {
+    id: number;
+};
+export declare type ISchedule = IScheduleItemInfoDto & {
+    id: number;
+    createdAt: string;
+};
+export interface IScheduleItemInfoDto {
+    /** @format int64 */
+    orderId?: number;
+    scheduleType: ScheduleType;
+    /** @format byte */
+    duration: number;
+    /** @format date-time */
+    operationStartsAt: string;
+    /** @format date-time */
+    operationEndsAt: string;
+    orderDetailsBlueprint?: string;
+    orderOrderNumber?: string;
+    /** @format double */
+    techElaborationFineFinishingNorm?: number;
+    orderDetailsCustomer?: string;
+    /** @format date-time */
+    orderShipmentDate?: string;
+    /** @format date-time */
+    materialsSuppliedAt?: string;
+    /** @format date-time */
+    preparationControlProgramReadyAt?: string;
+    comment?: string;
+}
+export declare enum ScheduleType {
+    Operation = 1,
+    Adjustment = 2,
+    Downtime = 3,
+    FreeTime = 4
+}
+export interface ICreateScheduleItemResponse {
+    /** @format int64 */
+    id: number;
+}
+export declare type ICreateScheduleItemRequest = IScheduleItemInfoDto & object;
+export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
     id: number;
 };

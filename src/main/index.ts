@@ -12,9 +12,14 @@ export enum ApplicationErrorCode {
   UserNotRegistered = 1006,
 }
 
-export type IOrder = IOrderInfoDto & { id: number; createdAt: string; numberOfRowChanges: number };
+export type IOrder = IOrderInfoDto & { id: number; createdAt: string; numberOfRowChanges: number; scheduled: boolean };
 
 export interface IOrderInfoDto {
+  completed: boolean;
+
+  /** @format date-time */
+  releasedToWarehouseAt?: string;
+  comment?: string;
   orderNeedsAttention?: boolean;
   orderOrderNumber?: string;
 
@@ -94,10 +99,6 @@ export interface IOrderInfoDto {
 
   /** @format date-time */
   externalCooperationArrivedIntoWarehouseAt?: string;
-
-  /** @format date-time */
-  releasedToWarehouseAt?: string;
-  releaseToWarehouseComment?: string;
 }
 
 export enum OrderStatus {
@@ -119,3 +120,52 @@ export interface ICreateTopicResponse {
 export type ICreateOrderRequest = IOrderInfoDto & object;
 
 export type IUpdateOrderCommand = IOrderInfoDto & { id: number };
+
+export type ISchedule = IScheduleItemInfoDto & { id: number; createdAt: string };
+
+export interface IScheduleItemInfoDto {
+  /** @format int64 */
+  orderId?: number;
+  scheduleType: ScheduleType;
+
+  /** @format byte */
+  duration: number;
+
+  /** @format date-time */
+  operationStartsAt: string;
+
+  /** @format date-time */
+  operationEndsAt: string;
+  orderDetailsBlueprint?: string;
+  orderOrderNumber?: string;
+
+  /** @format double */
+  techElaborationFineFinishingNorm?: number;
+  orderDetailsCustomer?: string;
+
+  /** @format date-time */
+  orderShipmentDate?: string;
+
+  /** @format date-time */
+  materialsSuppliedAt?: string;
+
+  /** @format date-time */
+  preparationControlProgramReadyAt?: string;
+  comment?: string;
+}
+
+export enum ScheduleType {
+  Operation = 1,
+  Adjustment = 2,
+  Downtime = 3,
+  FreeTime = 4,
+}
+
+export interface ICreateScheduleItemResponse {
+  /** @format int64 */
+  id: number;
+}
+
+export type ICreateScheduleItemRequest = IScheduleItemInfoDto & object;
+
+export type IUpdateScheduleItemRequest = IScheduleItemInfoDto & { id: number };

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MaterialsWorkpieceType = exports.OrderStatus = exports.ApplicationErrorCode = void 0;
+exports.ScheduleType = exports.MaterialsWorkpieceType = exports.OrderStatus = exports.ApplicationErrorCode = void 0;
 var ApplicationErrorCode;
 (function (ApplicationErrorCode) {
     ApplicationErrorCode[ApplicationErrorCode["BadRequest"] = 1000] = "BadRequest";
@@ -21,3 +21,10 @@ var MaterialsWorkpieceType;
     MaterialsWorkpieceType[MaterialsWorkpieceType["Rolling"] = 1] = "Rolling";
     MaterialsWorkpieceType[MaterialsWorkpieceType["Stamping"] = 2] = "Stamping";
 })(MaterialsWorkpieceType = exports.MaterialsWorkpieceType || (exports.MaterialsWorkpieceType = {}));
+var ScheduleType;
+(function (ScheduleType) {
+    ScheduleType[ScheduleType["Operation"] = 1] = "Operation";
+    ScheduleType[ScheduleType["Adjustment"] = 2] = "Adjustment";
+    ScheduleType[ScheduleType["Downtime"] = 3] = "Downtime";
+    ScheduleType[ScheduleType["FreeTime"] = 4] = "FreeTime";
+})(ScheduleType = exports.ScheduleType || (exports.ScheduleType = {}));
