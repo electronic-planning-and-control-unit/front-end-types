@@ -21,7 +21,6 @@ export interface IOrderInfoDto {
     /** @format date-time */
     releasedToWarehouseAt?: string;
     comment?: string;
-    orderNeedsAttention?: boolean;
     orderOrderNumber?: string;
     /** @format date-time */
     orderShipmentDate?: string;
@@ -104,17 +103,19 @@ export declare type ISchedule = IScheduleItemInfoDto & {
 export interface IScheduleItemInfoDto {
     /** @format int64 */
     orderId?: number;
+    processingCenter?: string;
     scheduleType: ScheduleType;
     /** @format byte */
     duration: number;
     /** @format date-time */
     operationStartsAt: string;
     /** @format date-time */
-    operationEndsAt: string;
+    operationName: string;
     orderDetailsBlueprint?: string;
     orderOrderNumber?: string;
     /** @format double */
     techElaborationFineFinishingNorm?: number;
+    techElaborationProcessingCenterType?: string;
     orderDetailsCustomer?: string;
     /** @format date-time */
     orderShipmentDate?: string;
