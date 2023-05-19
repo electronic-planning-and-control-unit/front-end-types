@@ -4,4 +4,4 @@
 latest_version=$(jq -r '.version' package.json)
 
 # Execute the command with the latest version
-gh release create "$latest_version" -t "$latest_version"
+gh release create "$latest_version" -t "$latest_version" --generate-notes true
