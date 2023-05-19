@@ -17,7 +17,7 @@ export declare type IOrder = IOrderInfoDto & {
     scheduled: boolean;
 };
 export interface IOrderInfoDto {
-    completed: boolean;
+    completed?: boolean;
     /** @format date-time */
     releasedToWarehouseAt?: string;
     comment?: string;
@@ -25,7 +25,6 @@ export interface IOrderInfoDto {
     orderOrderNumber?: string;
     /** @format date-time */
     orderShipmentDate?: string;
-    orderStatus?: OrderStatus;
     orderDetailsCustomer?: string;
     orderDetailsStage?: string;
     orderDetailsBlueprint?: string;
@@ -85,11 +84,6 @@ export interface IOrderInfoDto {
     externalCooperationArrivedIntoWarehouse?: boolean;
     /** @format date-time */
     externalCooperationArrivedIntoWarehouseAt?: string;
-}
-export declare enum OrderStatus {
-    NotPlanned = 1,
-    Planned = 2,
-    Completed = 3
 }
 export declare enum MaterialsWorkpieceType {
     Rolling = 1,

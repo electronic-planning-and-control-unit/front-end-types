@@ -15,7 +15,7 @@ export enum ApplicationErrorCode {
 export type IOrder = IOrderInfoDto & { id: number; createdAt: string; numberOfRowChanges: number; scheduled: boolean };
 
 export interface IOrderInfoDto {
-  completed: boolean;
+  completed?: boolean;
 
   /** @format date-time */
   releasedToWarehouseAt?: string;
@@ -25,7 +25,6 @@ export interface IOrderInfoDto {
 
   /** @format date-time */
   orderShipmentDate?: string;
-  orderStatus?: OrderStatus;
   orderDetailsCustomer?: string;
   orderDetailsStage?: string;
   orderDetailsBlueprint?: string;
@@ -99,12 +98,6 @@ export interface IOrderInfoDto {
 
   /** @format date-time */
   externalCooperationArrivedIntoWarehouseAt?: string;
-}
-
-export enum OrderStatus {
-  NotPlanned = 1,
-  Planned = 2,
-  Completed = 3,
 }
 
 export enum MaterialsWorkpieceType {

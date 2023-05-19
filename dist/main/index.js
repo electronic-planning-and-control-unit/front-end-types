@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ScheduleType = exports.MaterialsWorkpieceType = exports.OrderStatus = exports.ApplicationErrorCode = void 0;
+exports.ScheduleType = exports.MaterialsWorkpieceType = exports.ApplicationErrorCode = void 0;
 var ApplicationErrorCode;
 (function (ApplicationErrorCode) {
     ApplicationErrorCode[ApplicationErrorCode["BadRequest"] = 1000] = "BadRequest";
@@ -10,12 +10,6 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["UnprocessableEntity"] = 1005] = "UnprocessableEntity";
     ApplicationErrorCode[ApplicationErrorCode["UserNotRegistered"] = 1006] = "UserNotRegistered";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
-var OrderStatus;
-(function (OrderStatus) {
-    OrderStatus[OrderStatus["NotPlanned"] = 1] = "NotPlanned";
-    OrderStatus[OrderStatus["Planned"] = 2] = "Planned";
-    OrderStatus[OrderStatus["Completed"] = 3] = "Completed";
-})(OrderStatus = exports.OrderStatus || (exports.OrderStatus = {}));
 var MaterialsWorkpieceType;
 (function (MaterialsWorkpieceType) {
     MaterialsWorkpieceType[MaterialsWorkpieceType["Rolling"] = 1] = "Rolling";
