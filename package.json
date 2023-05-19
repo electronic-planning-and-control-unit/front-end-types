@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "start": "yarn tsc generate.ts && node generate.js && yarn tsc",
-    "release": "npm version patch && release.sh"
+    "release": "npm version patch && release.sh && git push"
   },
   "devDependencies": {
     "@types/node": "^16.4.6",
