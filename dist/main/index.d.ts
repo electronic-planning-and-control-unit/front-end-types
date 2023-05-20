@@ -8,7 +8,8 @@ export declare enum ApplicationErrorCode {
     Forbidden = 1003,
     InternalServerError = 1004,
     UnprocessableEntity = 1005,
-    UserNotRegistered = 1006
+    UserNotRegistered = 1006,
+    OrderScheduled = 1007
 }
 export declare type IOrder = IOrderInfoDto & {
     id: number;

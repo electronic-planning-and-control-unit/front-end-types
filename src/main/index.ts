@@ -10,6 +10,7 @@ export enum ApplicationErrorCode {
   InternalServerError = 1004,
   UnprocessableEntity = 1005,
   UserNotRegistered = 1006,
+  OrderScheduled = 1007,
 }
 
 export type IOrder = IOrderInfoDto & { id: number; createdAt: string; numberOfRowChanges: number; scheduled: boolean };
