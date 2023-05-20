@@ -104,7 +104,7 @@ export enum MaterialsWorkpieceType {
   Stamping = 2,
 }
 
-export interface ICreateTopicResponse {
+export interface ICreateOrderResponse {
   /** @format int64 */
   id: number;
 }
