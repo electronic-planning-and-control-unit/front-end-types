@@ -1,5 +1,5 @@
 {
-  "name": "lingopractices-models",
+  "name": "epdo-models",
   "version": "1.0.24",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

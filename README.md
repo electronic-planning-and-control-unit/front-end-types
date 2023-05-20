@@ -1,8 +1,8 @@
-# Lingo Practices Frontend Types
+# Epdo API Frontend Types
 
 ### Install Github CLIE
 
-Generates frontend types for api Lingo Pracrices API using swager files
+Generates frontend types for api Epdo API using swager files
 
 ### Install dependencies
 
