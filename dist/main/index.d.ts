@@ -124,6 +124,7 @@ export interface IScheduleItemInfoDto {
     materialsSuppliedAt?: string;
     /** @format date-time */
     preparationControlProgramReadyAt?: string;
+    orderDetailsStage?: string;
     comment?: string;
 }
 export declare enum ScheduleType {

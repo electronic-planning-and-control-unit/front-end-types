@@ -146,6 +146,7 @@ export interface IScheduleItemInfoDto {
 
   /** @format date-time */
   preparationControlProgramReadyAt?: string;
+  orderDetailsStage?: string;
   comment?: string;
 }
 
