@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "release": "git push && npm version patch && chmod +x release.sh && ./release.sh",
+    "release": "git push && npm version patch && chmod +x release.sh",
     "start": "yarn tsc generate.ts && node generate.js && yarn tsc && git add . && git commit -m 'update' && git push && yarn release"
   },
   "devDependencies": {
