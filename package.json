@@ -3,13 +3,12 @@
   "version": "1.0.26",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "repository": "https://github.com/lingopractices/front-end-types.git",
   "author": "artem-avanesov <artsyom.avanesov@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "yarn tsc generate.ts && node generate.js && yarn tsc",
-    "release": "npm version patch && chmod +x release.sh && ./release.sh && git push"
+    "start": "yarn tsc generate.ts && node generate.js && yarn tsc && git add . && git commit -m 'update'",
+    "release": "git push && npm version patch && chmod +x release.sh && ./release.sh && git push"
   },
   "devDependencies": {
     "@types/node": "^16.4.6",

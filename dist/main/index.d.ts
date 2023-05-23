@@ -9,7 +9,8 @@ export declare enum ApplicationErrorCode {
     InternalServerError = 1004,
     UnprocessableEntity = 1005,
     UserNotRegistered = 1006,
-    OrderScheduled = 1007
+    OrderScheduled = 1007,
+    OrderHasNotCompletedScheduleItems = 1008
 }
 export declare type IOrder = IOrderInfoDto & {
     id: number;
@@ -104,14 +105,14 @@ export declare type ISchedule = IScheduleItemInfoDto & {
 export interface IScheduleItemInfoDto {
     /** @format int64 */
     orderId?: number;
+    completed?: boolean;
     processingCenter?: string;
     scheduleType: ScheduleType;
     /** @format byte */
     duration: number;
     /** @format date-time */
     operationStartsAt: string;
-    /** @format date-time */
-    operationName: string;
+    operationName?: string;
     orderDetailsBlueprint?: string;
     orderOrderNumber?: string;
     /** @format double */

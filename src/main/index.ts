@@ -11,6 +11,7 @@ export enum ApplicationErrorCode {
   UnprocessableEntity = 1005,
   UserNotRegistered = 1006,
   OrderScheduled = 1007,
+  OrderHasNotCompletedScheduleItems = 1008,
 }
 
 export type IOrder = IOrderInfoDto & { id: number; createdAt: string; numberOfRowChanges: number; scheduled: boolean };
@@ -119,6 +120,7 @@ export type ISchedule = IScheduleItemInfoDto & { id: number; createdAt: string }
 export interface IScheduleItemInfoDto {
   /** @format int64 */
   orderId?: number;
+  completed?: boolean;
   processingCenter?: string;
   scheduleType: ScheduleType;
 
@@ -127,9 +129,7 @@ export interface IScheduleItemInfoDto {
 
   /** @format date-time */
   operationStartsAt: string;
-
-  /** @format date-time */
-  operationName: string;
+  operationName?: string;
   orderDetailsBlueprint?: string;
   orderOrderNumber?: string;
 
