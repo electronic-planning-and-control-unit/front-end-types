@@ -1,6 +1,6 @@
 {
   "name": "epdo-models",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "author": "artem-avanesov <artsyom.avanesov@gmail.com>",
