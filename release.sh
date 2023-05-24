@@ -4,5 +4,7 @@
 latest_version=$(jq -r '.version' package.json)
 
 # Execute the command with the latest version
-gh release create "$latest_version" --generate-notes
+gh release create "$latest_version" --generate-notes --draft
 gh release upload "$latest_version" ./
+gh release edit "$latest_version" --draft=false
+git push
