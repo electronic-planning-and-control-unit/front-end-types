@@ -17,6 +17,7 @@ export declare type IOrder = IOrderInfoDto & {
     createdAt: string;
     numberOfRowChanges: number;
     scheduled: boolean;
+    queued: boolean;
 };
 export interface IOrderInfoDto {
     completed?: boolean;

@@ -14,7 +14,13 @@ export enum ApplicationErrorCode {
   OrderHasNotCompletedScheduleItems = 1008,
 }
 
-export type IOrder = IOrderInfoDto & { id: number; createdAt: string; numberOfRowChanges: number; scheduled: boolean };
+export type IOrder = IOrderInfoDto & {
+  id: number;
+  createdAt: string;
+  numberOfRowChanges: number;
+  scheduled: boolean;
+  queued: boolean;
+};
 
 export interface IOrderInfoDto {
   completed?: boolean;
