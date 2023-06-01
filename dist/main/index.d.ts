@@ -17,10 +17,11 @@ export declare type IOrder = IOrderInfoDto & {
     createdAt: string;
     numberOfRowChanges: number;
     scheduled: boolean;
-    queued: boolean;
+    workStartPoint?: string;
 };
 export interface IOrderInfoDto {
     completed?: boolean;
+    queued: boolean;
     /** @format date-time */
     releasedToWarehouseAt?: string;
     comment?: string;
@@ -34,7 +35,7 @@ export interface IOrderInfoDto {
     orderDetailsRelease?: number;
     /** @format double */
     techElaborationFineFinishingNorm?: number;
-    techElaborationProcessingCenterType?: string;
+    techElaborationProcessingCenterType?: string[];
     techElaborationExternalCooperation?: boolean;
     techElaborationHeatTreatment?: boolean;
     techElaborationStellite?: boolean;
@@ -118,7 +119,7 @@ export interface IScheduleItemInfoDto {
     orderOrderNumber?: string;
     /** @format double */
     techElaborationFineFinishingNorm?: number;
-    techElaborationProcessingCenterType?: string;
+    techElaborationProcessingCenterType?: string[];
     orderDetailsCustomer?: string;
     /** @format date-time */
     orderShipmentDate?: string;

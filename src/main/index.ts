@@ -19,11 +19,12 @@ export type IOrder = IOrderInfoDto & {
   createdAt: string;
   numberOfRowChanges: number;
   scheduled: boolean;
-  queued: boolean;
+  workStartPoint?: string;
 };
 
 export interface IOrderInfoDto {
   completed?: boolean;
+  queued: boolean;
 
   /** @format date-time */
   releasedToWarehouseAt?: string;
@@ -40,7 +41,7 @@ export interface IOrderInfoDto {
 
   /** @format double */
   techElaborationFineFinishingNorm?: number;
-  techElaborationProcessingCenterType?: string;
+  techElaborationProcessingCenterType?: string[];
   techElaborationExternalCooperation?: boolean;
   techElaborationHeatTreatment?: boolean;
   techElaborationStellite?: boolean;
@@ -141,7 +142,7 @@ export interface IScheduleItemInfoDto {
 
   /** @format double */
   techElaborationFineFinishingNorm?: number;
-  techElaborationProcessingCenterType?: string;
+  techElaborationProcessingCenterType?: string[];
   orderDetailsCustomer?: string;
 
   /** @format date-time */
