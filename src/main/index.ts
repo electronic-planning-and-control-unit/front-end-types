@@ -19,6 +19,7 @@ export type IOrder = IOrderInfoDto & {
   createdAt: string;
   numberOfRowChanges: number;
   scheduled: boolean;
+  scheduleCompleted: boolean;
   workStartPoint?: string;
 };
 
