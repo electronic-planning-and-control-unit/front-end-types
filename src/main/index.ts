@@ -134,9 +134,6 @@ export interface IScheduleItemInfoDto {
 
   /** @format date-time */
   operationStartsAt: string;
-
-  /** @format date-time */
-  operationEndsAt: string;
   operationName?: string;
   orderDetailsBlueprint?: string;
   orderOrderNumber?: string;
@@ -170,6 +167,6 @@ export interface ICreateScheduleItemResponse {
   id: number;
 }
 
-export type ICreateScheduleItemRequest = IScheduleItemInfoDto & { id: number };
+export type ICreateScheduleItemRequest = IScheduleItemInfoDto & { id?: number };
 
 export type IUpdateScheduleItemRequest = IScheduleItemInfoDto & { id: number };
