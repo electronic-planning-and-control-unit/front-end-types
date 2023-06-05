@@ -110,10 +110,11 @@ export interface IScheduleItemInfoDto {
     completed?: boolean;
     processingCenter?: string;
     scheduleType: ScheduleType;
-    /** @format byte */
     duration: number;
     /** @format date-time */
     operationStartsAt: string;
+    /** @format date-time */
+    operationEndsAt: string;
     operationName?: string;
     orderDetailsBlueprint?: string;
     orderOrderNumber?: string;
@@ -140,7 +141,9 @@ export interface ICreateScheduleItemResponse {
     /** @format int64 */
     id: number;
 }
-export declare type ICreateScheduleItemRequest = IScheduleItemInfoDto & object;
+export declare type ICreateScheduleItemRequest = IScheduleItemInfoDto & {
+    id: number;
+};
 export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
     id: number;
 };
