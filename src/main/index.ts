@@ -12,6 +12,21 @@ export enum ApplicationErrorCode {
   UserNotRegistered = 1006,
   OrderScheduled = 1007,
   OrderHasNotCompletedScheduleItems = 1008,
+  EntityNotFound = 1009,
+}
+
+export interface ISecurityTokens {
+  accessToken?: string;
+  refreshToken?: string;
+}
+
+export interface ILoginRequest {
+  login?: string;
+  password?: string;
+}
+
+export interface IRefreshTokenRequest {
+  refreshToken: string;
 }
 
 export type IOrder = IOrderInfoDto & {
@@ -171,3 +186,11 @@ export interface ICreateScheduleItemResponse {
 export type ICreateScheduleItemRequest = IScheduleItemInfoDto & { id?: number };
 
 export type IUpdateScheduleItemRequest = IScheduleItemInfoDto & { id: number };
+
+export interface IUser {
+  /** @format int64 */
+  id: number;
+  email: string;
+  firstName: string;
+  lastName?: string;
+}

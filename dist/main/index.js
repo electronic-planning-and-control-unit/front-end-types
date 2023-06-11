@@ -11,6 +11,7 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["UserNotRegistered"] = 1006] = "UserNotRegistered";
     ApplicationErrorCode[ApplicationErrorCode["OrderScheduled"] = 1007] = "OrderScheduled";
     ApplicationErrorCode[ApplicationErrorCode["OrderHasNotCompletedScheduleItems"] = 1008] = "OrderHasNotCompletedScheduleItems";
+    ApplicationErrorCode[ApplicationErrorCode["EntityNotFound"] = 1009] = "EntityNotFound";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var MaterialsWorkpieceType;
 (function (MaterialsWorkpieceType) {

@@ -10,7 +10,19 @@ export declare enum ApplicationErrorCode {
     UnprocessableEntity = 1005,
     UserNotRegistered = 1006,
     OrderScheduled = 1007,
-    OrderHasNotCompletedScheduleItems = 1008
+    OrderHasNotCompletedScheduleItems = 1008,
+    EntityNotFound = 1009
+}
+export interface ISecurityTokens {
+    accessToken?: string;
+    refreshToken?: string;
+}
+export interface ILoginRequest {
+    login?: string;
+    password?: string;
+}
+export interface IRefreshTokenRequest {
+    refreshToken: string;
 }
 export declare type IOrder = IOrderInfoDto & {
     id: number;
@@ -146,3 +158,10 @@ export declare type ICreateScheduleItemRequest = IScheduleItemInfoDto & {
 export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
     id: number;
 };
+export interface IUser {
+    /** @format int64 */
+    id: number;
+    email: string;
+    firstName: string;
+    lastName?: string;
+}
