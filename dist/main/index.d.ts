@@ -165,3 +165,12 @@ export interface IUser {
     firstName: string;
     lastName?: string;
 }
+export declare type IRolePermission = {
+    active: boolean;
+    permission: any;
+    object: any;
+    readonly?: string;
+    writable?: string;
+    roleId?: number;
+    role?: any;
+};
