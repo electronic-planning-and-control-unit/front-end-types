@@ -193,14 +193,44 @@ export interface IUser {
   email: string;
   firstName: string;
   lastName?: string;
+  permissions: Record<string, Permission>;
 }
 
-export type IRolePermission = {
-  active: boolean;
-  permission: any;
-  object: any;
-  readonly?: string;
-  writable?: string;
-  roleId?: number;
-  role?: any;
-};
+export enum PermissionObject {
+  None = 0,
+  Orders = 1,
+  ISchedule = 2,
+  History = 3,
+  OrdersBase = 100,
+  OrdersDetails = 110,
+  OrdersTechElaboration = 120,
+  OrdersMaterials = 130,
+  OrdersPreparationEquipment = 140,
+  OrdersProduction = 150,
+  OrdersProductionCutting = 151,
+  OrdersProductionHeatTreatment = 152,
+  OrdersProductionProduction = 153,
+  OrdersProductionExternalCooperation = 154,
+  OrdersComments = 160,
+  OrderFunctionAddToTimeline = 200,
+  OrderFunctionMarkCompleted = 201,
+  ScheduleCreateFromQueue = 300,
+  ScheduleCreateManually = 301,
+  ScheduleFunctionPosition = 302,
+  ScheduleFunctionDuration = 303,
+  ScheduleFunctionMarkCompleted = 304,
+  ScheduleFunctionSplit = 305,
+}
+
+export enum Permission {
+  None = 0,
+  Read = 1,
+  Write = 2,
+  ReadWrite = 3,
+  Create = 4,
+  Remove = 8,
+  Execute = 16,
+  Full = 31,
+  Administrative = 32,
+  FullAdministrative = 63,
+}
