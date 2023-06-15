@@ -161,10 +161,13 @@ export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
 export interface IUser {
     /** @format int64 */
     id: number;
+    /** @format int64 */
+    publicId: number;
     email: string;
     firstName: string;
     lastName?: string;
-    permissions: Record<string, Permission>;
+    savedFilters?: string;
+    permissions?: Record<string, Permission>;
 }
 export declare enum PermissionObject {
     None = 0,
@@ -202,4 +205,9 @@ export declare enum Permission {
     Full = 31,
     Administrative = 32,
     FullAdministrative = 63
+}
+export interface IUpdateUserRequest {
+    firstName?: string;
+    lastName?: string;
+    savedFilters?: string;
 }
