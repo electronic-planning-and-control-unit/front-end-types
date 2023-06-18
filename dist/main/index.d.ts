@@ -113,6 +113,20 @@ export declare type ICreateOrderRequest = IOrderInfoDto & object;
 export declare type IUpdateOrderCommand = IOrderInfoDto & {
     id: number;
 };
+export declare type IOrderHistoryItem = IOrderInfoDto & {
+    id: number;
+    createdAt: string;
+    scheduled: boolean;
+    scheduleCompleted: boolean;
+    workStartPoint?: string;
+    versionWarningType: VersionWarningType;
+    changedColumns?: string[];
+    modifiedBy?: string;
+};
+export declare enum VersionWarningType {
+    UpdateOrder = 1,
+    RescheduleOrder = 2
+}
 export declare type ISchedule = IScheduleItemInfoDto & {
     id: number;
     createdAt: string;
