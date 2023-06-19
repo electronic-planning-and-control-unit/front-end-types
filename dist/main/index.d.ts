@@ -110,11 +110,8 @@ export interface ICreateOrderResponse {
     id: number;
 }
 export declare type ICreateOrderRequest = IOrderInfoDto & object;
-export interface ICreateBulkOrdersResponse {
-    ids: number[];
-}
-export interface ICreateBulkOrderRequest {
-    commands?: ICreateOrderRequest[];
+export interface IEditBulkOrderRequest {
+    commands?: IUpdateOrderCommand[];
 }
 export declare type IUpdateOrderCommand = IOrderInfoDto & {
     id: number;

@@ -136,12 +136,8 @@ export interface ICreateOrderResponse {
 
 export type ICreateOrderRequest = IOrderInfoDto & object;
 
-export interface ICreateBulkOrdersResponse {
-  ids: number[];
-}
-
-export interface ICreateBulkOrderRequest {
-  commands?: ICreateOrderRequest[];
+export interface IEditBulkOrderRequest {
+  commands?: IUpdateOrderCommand[];
 }
 
 export type IUpdateOrderCommand = IOrderInfoDto & { id: number };
