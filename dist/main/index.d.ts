@@ -5,13 +5,9 @@ export interface IApplicationError {
 export declare enum ApplicationErrorCode {
     BadRequest = 1000,
     Unauthorized = 1002,
-    Forbidden = 1003,
     InternalServerError = 1004,
-    UnprocessableEntity = 1005,
-    UserNotRegistered = 1006,
     OrderScheduled = 1007,
-    OrderHasNotCompletedScheduleItems = 1008,
-    EntityNotFound = 1009
+    OrderHasNotCompletedScheduleItems = 1008
 }
 export interface ISecurityTokens {
     accessToken?: string;

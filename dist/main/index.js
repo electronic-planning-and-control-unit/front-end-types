@@ -5,13 +5,9 @@ var ApplicationErrorCode;
 (function (ApplicationErrorCode) {
     ApplicationErrorCode[ApplicationErrorCode["BadRequest"] = 1000] = "BadRequest";
     ApplicationErrorCode[ApplicationErrorCode["Unauthorized"] = 1002] = "Unauthorized";
-    ApplicationErrorCode[ApplicationErrorCode["Forbidden"] = 1003] = "Forbidden";
     ApplicationErrorCode[ApplicationErrorCode["InternalServerError"] = 1004] = "InternalServerError";
-    ApplicationErrorCode[ApplicationErrorCode["UnprocessableEntity"] = 1005] = "UnprocessableEntity";
-    ApplicationErrorCode[ApplicationErrorCode["UserNotRegistered"] = 1006] = "UserNotRegistered";
     ApplicationErrorCode[ApplicationErrorCode["OrderScheduled"] = 1007] = "OrderScheduled";
     ApplicationErrorCode[ApplicationErrorCode["OrderHasNotCompletedScheduleItems"] = 1008] = "OrderHasNotCompletedScheduleItems";
-    ApplicationErrorCode[ApplicationErrorCode["EntityNotFound"] = 1009] = "EntityNotFound";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var MaterialsWorkpieceType;
 (function (MaterialsWorkpieceType) {
