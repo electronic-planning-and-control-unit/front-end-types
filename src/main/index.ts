@@ -35,7 +35,7 @@ export type IOrder = IOrderInfoDto & {
 };
 
 export interface IOrderInfoDto {
-  completed?: boolean;
+  completed: boolean;
   queued: boolean;
 
   /** @format date-time */
@@ -54,67 +54,67 @@ export interface IOrderInfoDto {
   /** @format double */
   techElaborationFineFinishingNorm?: number;
   techElaborationProcessingCenterType?: string[];
-  techElaborationExternalCooperation?: boolean;
-  techElaborationHeatTreatment?: boolean;
-  techElaborationStellite?: boolean;
-  techElaborationSpecialContainer?: boolean;
+  techElaborationExternalCooperation: boolean;
+  techElaborationHeatTreatment: boolean;
+  techElaborationStellite: boolean;
+  techElaborationSpecialContainer: boolean;
   materialsMetalGrade?: string;
   materialsWorkpieceType?: MaterialsWorkpieceType;
   materialsNomenclature?: string;
   materialsCrossSection?: string;
   materialsWeight?: number;
   materialsLength?: number;
-  materialsSupplied?: boolean;
+  materialsSupplied: boolean;
 
   /** @format date-time */
   materialsSuppliedAt?: string;
-  materialsSpecialContainerSupplied?: boolean;
+  materialsSpecialContainerSupplied: boolean;
 
   /** @format date-time */
   materialsSpecialContainerSuppliedAt?: string;
-  materialsStelliteSupplied?: boolean;
+  materialsStelliteSupplied: boolean;
 
   /** @format date-time */
   materialsStelliteSuppliedAt?: string;
-  preparationEquipmentCompleted?: boolean;
+  preparationEquipmentCompleted: boolean;
 
   /** @format date-time */
   preparationEquipmentCompletedAt?: string;
-  preparationToolsReady?: boolean;
+  preparationToolsReady: boolean;
 
   /** @format date-time */
   preparationToolsReadyAt?: string;
-  preparationControlProgram?: boolean;
+  preparationControlProgram: boolean;
 
   /** @format date-time */
   preparationControlProgramReadyAt?: string;
-  cuttingWorkStarted?: boolean;
+  cuttingWorkStarted: boolean;
 
   /** @format date-time */
   cuttingWorkStartedAt?: string;
-  cuttingCompleted?: boolean;
+  cuttingCompleted: boolean;
 
   /** @format date-time */
   cuttingCompletedAt?: string;
-  heatTreatmentShippedFromWarehouse?: boolean;
+  heatTreatmentShippedFromWarehouse: boolean;
 
   /** @format date-time */
   heatTreatmentShippedFromWarehouseAt?: string;
   heatTreatmentReprocessor?: string;
-  heatTreatmentReleasedFromWarehouse?: boolean;
+  heatTreatmentReleasedFromWarehouse: boolean;
 
   /** @format date-time */
   heatTreatmentReleasedFromWarehouseAt?: string;
-  productionReleased?: boolean;
+  productionReleased: boolean;
 
   /** @format date-time */
   productionReleasedAt?: string;
-  externalCooperationShippedFromWarehouse?: boolean;
+  externalCooperationShippedFromWarehouse: boolean;
 
   /** @format date-time */
   externalCooperationShippedFromWarehouseAt?: string;
   externalCooperationReprocessor?: string;
-  externalCooperationArrivedIntoWarehouse?: boolean;
+  externalCooperationArrivedIntoWarehouse: boolean;
 
   /** @format date-time */
   externalCooperationArrivedIntoWarehouseAt?: string;
@@ -141,6 +141,7 @@ export type IUpdateOrderCommand = IOrderInfoDto & { id: number };
 export type IOrderHistoryItem = IOrderInfoDto & {
   id: number;
   createdAt: string;
+  createdById: number;
   scheduled: boolean;
   scheduleCompleted: boolean;
   workStartPoint?: string;
@@ -154,12 +155,85 @@ export enum VersionWarningType {
   RescheduleOrder = 2,
 }
 
+export interface IRole {
+  /** @format int64 */
+  id: number;
+
+  /** @format date-time */
+  createdAt: string;
+  name?: string;
+  permissions?: IRolePermission[];
+}
+
+export interface IRolePermission {
+  /** @format int64 */
+  id: number;
+  permission: Permission;
+  permissionObject: PermissionObject;
+}
+
+export enum Permission {
+  None = 0,
+  Read = 1,
+  Write = 2,
+  ReadWrite = 3,
+  Create = 4,
+  Remove = 8,
+  Execute = 16,
+  Full = 31,
+  Administrative = 32,
+  FullAdministrative = 63,
+}
+
+export enum PermissionObject {
+  None = 0,
+  Orders = 1,
+  ISchedule = 2,
+  History = 3,
+  Users = 4,
+  Roles = 5,
+  OrdersBase = 100,
+  OrdersDetails = 110,
+  OrdersTechElaboration = 120,
+  OrdersMaterials = 130,
+  OrdersPreparationEquipment = 140,
+  OrdersProduction = 150,
+  OrdersProductionCutting = 151,
+  OrdersProductionHeatTreatment = 152,
+  OrdersProductionProduction = 153,
+  OrdersProductionExternalCooperation = 154,
+  OrdersComments = 160,
+  OrderFunctionAddToTimeline = 200,
+  OrderFunctionMarkCompleted = 201,
+  ScheduleCreateFromQueue = 300,
+  ScheduleCreateManually = 301,
+  ScheduleFunctionPosition = 302,
+  ScheduleFunctionDuration = 303,
+  ScheduleFunctionMarkCompleted = 304,
+  ScheduleFunctionSplit = 305,
+}
+
+export interface ICreateRoleResponse {
+  /** @format int64 */
+  id: number;
+}
+
+export interface ICreateRoleRequest {
+  name?: string;
+}
+
+export interface IUpdateRoleRequest {
+  /** @format int64 */
+  id: number;
+  name?: string;
+}
+
 export type ISchedule = IScheduleItemInfoDto & { id: number; createdAt: string };
 
 export interface IScheduleItemInfoDto {
   /** @format int64 */
   orderId?: number;
-  completed?: boolean;
+  completed: boolean;
   processingCenter?: string;
   scheduleType: ScheduleType;
   duration: number;
@@ -214,45 +288,6 @@ export interface IUser {
   lastName?: string;
   savedFilters?: string;
   permissions?: Record<string, Permission>;
-}
-
-export enum PermissionObject {
-  None = 0,
-  Orders = 1,
-  ISchedule = 2,
-  History = 3,
-  OrdersBase = 100,
-  OrdersDetails = 110,
-  OrdersTechElaboration = 120,
-  OrdersMaterials = 130,
-  OrdersPreparationEquipment = 140,
-  OrdersProduction = 150,
-  OrdersProductionCutting = 151,
-  OrdersProductionHeatTreatment = 152,
-  OrdersProductionProduction = 153,
-  OrdersProductionExternalCooperation = 154,
-  OrdersComments = 160,
-  OrderFunctionAddToTimeline = 200,
-  OrderFunctionMarkCompleted = 201,
-  ScheduleCreateFromQueue = 300,
-  ScheduleCreateManually = 301,
-  ScheduleFunctionPosition = 302,
-  ScheduleFunctionDuration = 303,
-  ScheduleFunctionMarkCompleted = 304,
-  ScheduleFunctionSplit = 305,
-}
-
-export enum Permission {
-  None = 0,
-  Read = 1,
-  Write = 2,
-  ReadWrite = 3,
-  Create = 4,
-  Remove = 8,
-  Execute = 16,
-  Full = 31,
-  Administrative = 32,
-  FullAdministrative = 63,
 }
 
 export interface IUpdateUserRequest {

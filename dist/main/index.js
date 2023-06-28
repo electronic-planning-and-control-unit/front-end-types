@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Permission = exports.PermissionObject = exports.ScheduleType = exports.VersionWarningType = exports.MaterialsWorkpieceType = exports.ApplicationErrorCode = void 0;
+exports.ScheduleType = exports.PermissionObject = exports.Permission = exports.VersionWarningType = exports.MaterialsWorkpieceType = exports.ApplicationErrorCode = void 0;
 var ApplicationErrorCode;
 (function (ApplicationErrorCode) {
     ApplicationErrorCode[ApplicationErrorCode["BadRequest"] = 1000] = "BadRequest";
@@ -19,19 +19,27 @@ var VersionWarningType;
     VersionWarningType[VersionWarningType["UpdateOrder"] = 1] = "UpdateOrder";
     VersionWarningType[VersionWarningType["RescheduleOrder"] = 2] = "RescheduleOrder";
 })(VersionWarningType = exports.VersionWarningType || (exports.VersionWarningType = {}));
-var ScheduleType;
-(function (ScheduleType) {
-    ScheduleType[ScheduleType["Operation"] = 1] = "Operation";
-    ScheduleType[ScheduleType["Adjustment"] = 2] = "Adjustment";
-    ScheduleType[ScheduleType["Downtime"] = 3] = "Downtime";
-    ScheduleType[ScheduleType["FreeTime"] = 4] = "FreeTime";
-})(ScheduleType = exports.ScheduleType || (exports.ScheduleType = {}));
+var Permission;
+(function (Permission) {
+    Permission[Permission["None"] = 0] = "None";
+    Permission[Permission["Read"] = 1] = "Read";
+    Permission[Permission["Write"] = 2] = "Write";
+    Permission[Permission["ReadWrite"] = 3] = "ReadWrite";
+    Permission[Permission["Create"] = 4] = "Create";
+    Permission[Permission["Remove"] = 8] = "Remove";
+    Permission[Permission["Execute"] = 16] = "Execute";
+    Permission[Permission["Full"] = 31] = "Full";
+    Permission[Permission["Administrative"] = 32] = "Administrative";
+    Permission[Permission["FullAdministrative"] = 63] = "FullAdministrative";
+})(Permission = exports.Permission || (exports.Permission = {}));
 var PermissionObject;
 (function (PermissionObject) {
     PermissionObject[PermissionObject["None"] = 0] = "None";
     PermissionObject[PermissionObject["Orders"] = 1] = "Orders";
     PermissionObject[PermissionObject["ISchedule"] = 2] = "ISchedule";
     PermissionObject[PermissionObject["History"] = 3] = "History";
+    PermissionObject[PermissionObject["Users"] = 4] = "Users";
+    PermissionObject[PermissionObject["Roles"] = 5] = "Roles";
     PermissionObject[PermissionObject["OrdersBase"] = 100] = "OrdersBase";
     PermissionObject[PermissionObject["OrdersDetails"] = 110] = "OrdersDetails";
     PermissionObject[PermissionObject["OrdersTechElaboration"] = 120] = "OrdersTechElaboration";
@@ -52,16 +60,10 @@ var PermissionObject;
     PermissionObject[PermissionObject["ScheduleFunctionMarkCompleted"] = 304] = "ScheduleFunctionMarkCompleted";
     PermissionObject[PermissionObject["ScheduleFunctionSplit"] = 305] = "ScheduleFunctionSplit";
 })(PermissionObject = exports.PermissionObject || (exports.PermissionObject = {}));
-var Permission;
-(function (Permission) {
-    Permission[Permission["None"] = 0] = "None";
-    Permission[Permission["Read"] = 1] = "Read";
-    Permission[Permission["Write"] = 2] = "Write";
-    Permission[Permission["ReadWrite"] = 3] = "ReadWrite";
-    Permission[Permission["Create"] = 4] = "Create";
-    Permission[Permission["Remove"] = 8] = "Remove";
-    Permission[Permission["Execute"] = 16] = "Execute";
-    Permission[Permission["Full"] = 31] = "Full";
-    Permission[Permission["Administrative"] = 32] = "Administrative";
-    Permission[Permission["FullAdministrative"] = 63] = "FullAdministrative";
-})(Permission = exports.Permission || (exports.Permission = {}));
+var ScheduleType;
+(function (ScheduleType) {
+    ScheduleType[ScheduleType["Operation"] = 1] = "Operation";
+    ScheduleType[ScheduleType["Adjustment"] = 2] = "Adjustment";
+    ScheduleType[ScheduleType["Downtime"] = 3] = "Downtime";
+    ScheduleType[ScheduleType["FreeTime"] = 4] = "FreeTime";
+})(ScheduleType = exports.ScheduleType || (exports.ScheduleType = {}));
