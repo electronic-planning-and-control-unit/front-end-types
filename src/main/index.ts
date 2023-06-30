@@ -290,8 +290,31 @@ export interface IUser {
   permissions?: Record<string, Permission>;
 }
 
-export interface IUpdateUserRequest {
+export interface IUpdateMyProfileRequest {
   firstName?: string;
   lastName?: string;
   savedFilters?: string;
+}
+
+export interface IUpdateUserRequest {
+  /** @format int64 */
+  id: number;
+
+  /** @format int64 */
+  publicId: number;
+  firstName?: string;
+  lastName?: string;
+  roleIds?: number[];
+}
+
+export interface IUserListItem {
+  /** @format int64 */
+  id: number;
+
+  /** @format int64 */
+  publicId: number;
+  email: string;
+  firstName: string;
+  lastName?: string;
+  roles?: string[];
 }
