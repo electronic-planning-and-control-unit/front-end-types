@@ -290,6 +290,18 @@ export interface IUser {
   permissions?: Record<string, Permission>;
 }
 
+export interface IUserListItem {
+  /** @format int64 */
+  id: number;
+
+  /** @format int64 */
+  publicId: number;
+  email: string;
+  firstName: string;
+  lastName?: string;
+  roles?: IRole[];
+}
+
 export interface IUpdateMyProfileRequest {
   firstName?: string;
   lastName?: string;
@@ -305,16 +317,4 @@ export interface IUpdateUserRequest {
   firstName?: string;
   lastName?: string;
   roleIds?: number[];
-}
-
-export interface IUserListItem {
-  /** @format int64 */
-  id: number;
-
-  /** @format int64 */
-  publicId: number;
-  email: string;
-  firstName: string;
-  lastName?: string;
-  roles?: string[];
 }
