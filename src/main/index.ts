@@ -21,6 +21,15 @@ export interface ILoginRequest {
   password?: string;
 }
 
+export interface IResetPasswordRequest {
+  email: string;
+}
+
+export interface IChangePasswordRequest {
+  oldPassword: string;
+  newPassword: string;
+}
+
 export interface IRefreshTokenRequest {
   refreshToken: string;
 }
@@ -188,7 +197,7 @@ export enum Permission {
 export enum PermissionObject {
   None = 0,
   Orders = 1,
-  ISchedule = 2,
+  Schedule = 2,
   History = 3,
   Users = 4,
   Roles = 5,
@@ -226,9 +235,10 @@ export interface IUpdateRoleRequest {
   /** @format int64 */
   id: number;
   name?: string;
+  permissions?: IRolePermission[];
 }
 
-export type ISchedule = IScheduleItemInfoDto & { id: number; createdAt: string };
+export type IScheduleItem = IScheduleItemInfoDto & { id: number; createdAt: string };
 
 export interface IScheduleItemInfoDto {
   /** @format int64 */

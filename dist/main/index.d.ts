@@ -17,6 +17,13 @@ export interface ILoginRequest {
     login?: string;
     password?: string;
 }
+export interface IResetPasswordRequest {
+    email: string;
+}
+export interface IChangePasswordRequest {
+    oldPassword: string;
+    newPassword: string;
+}
 export interface IRefreshTokenRequest {
     refreshToken: string;
 }
@@ -156,7 +163,7 @@ export declare enum Permission {
 export declare enum PermissionObject {
     None = 0,
     Orders = 1,
-    ISchedule = 2,
+    Schedule = 2,
     History = 3,
     Users = 4,
     Roles = 5,
@@ -191,8 +198,9 @@ export interface IUpdateRoleRequest {
     /** @format int64 */
     id: number;
     name?: string;
+    permissions?: IRolePermission[];
 }
-export declare type ISchedule = IScheduleItemInfoDto & {
+export declare type IScheduleItem = IScheduleItemInfoDto & {
     id: number;
     createdAt: string;
 };

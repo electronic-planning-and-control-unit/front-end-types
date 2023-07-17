@@ -36,7 +36,7 @@ var PermissionObject;
 (function (PermissionObject) {
     PermissionObject[PermissionObject["None"] = 0] = "None";
     PermissionObject[PermissionObject["Orders"] = 1] = "Orders";
-    PermissionObject[PermissionObject["ISchedule"] = 2] = "ISchedule";
+    PermissionObject[PermissionObject["Schedule"] = 2] = "Schedule";
     PermissionObject[PermissionObject["History"] = 3] = "History";
     PermissionObject[PermissionObject["Users"] = 4] = "Users";
     PermissionObject[PermissionObject["Roles"] = 5] = "Roles";
