@@ -264,9 +264,11 @@ export interface IScheduleItemInfoDto {
 
   /** @format date-time */
   materialsSuppliedAt?: string;
+  materialsSupplied: boolean;
 
   /** @format date-time */
   preparationControlProgramReadyAt?: string;
+  preparationControlProgramReady: boolean;
   orderDetailsStage?: string;
   comment?: string;
 }
