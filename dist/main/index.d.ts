@@ -203,6 +203,7 @@ export interface IUpdateRoleRequest {
 export declare type IScheduleItem = IScheduleItemInfoDto & {
     id: number;
     createdAt: string;
+    processingCenter?: string;
 };
 export interface IScheduleItemInfoDto {
     /** @format int64 */
@@ -229,7 +230,6 @@ export interface IScheduleItemInfoDto {
     preparationControlProgramReady: boolean;
     orderDetailsStage?: string;
     comment?: string;
-    processingCenter?: IProcessingCenterDto;
 }
 export declare enum ScheduleType {
     Operation = 1,
@@ -237,23 +237,25 @@ export declare enum ScheduleType {
     Downtime = 3,
     FreeTime = 4
 }
-export interface IProcessingCenterDto {
-    /** @format int64 */
-    id: number;
-    name?: string;
-    /** @format int64 */
-    version: number;
-}
 export interface ICreateScheduleItemResponse {
     /** @format int64 */
     id: number;
 }
 export declare type ICreateScheduleItemRequest = IScheduleItemInfoDto & {
     id?: number;
+    processingCenter?: IProcessingCenter;
 };
+export interface IProcessingCenter {
+    /** @format int64 */
+    id: number;
+    name?: string;
+    /** @format int64 */
+    version: number;
+}
 export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
     id: number;
-    oldProcessingCenter?: IProcessingCenterDto;
+    oldProcessingCenter?: IProcessingCenter;
+    newProcessingCenter?: IProcessingCenter;
 };
 export interface IUser {
     /** @format int64 */
