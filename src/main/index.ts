@@ -6,6 +6,7 @@ export interface IApplicationError {
 export enum ApplicationErrorCode {
   BadRequest = 1000,
   Unauthorized = 1002,
+  Conflict = 1003,
   InternalServerError = 1004,
   OrderScheduled = 1007,
   OrderHasNotCompletedScheduleItems = 1008,
