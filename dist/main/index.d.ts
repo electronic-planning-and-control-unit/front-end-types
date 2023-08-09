@@ -208,7 +208,6 @@ export interface IScheduleItemInfoDto {
     /** @format int64 */
     orderId?: number;
     completed: boolean;
-    processingCenter?: string;
     scheduleType: ScheduleType;
     duration: number;
     /** @format date-time */
@@ -230,12 +229,20 @@ export interface IScheduleItemInfoDto {
     preparationControlProgramReady: boolean;
     orderDetailsStage?: string;
     comment?: string;
+    processingCenter?: IProcessingCenterDto;
 }
 export declare enum ScheduleType {
     Operation = 1,
     Adjustment = 2,
     Downtime = 3,
     FreeTime = 4
+}
+export interface IProcessingCenterDto {
+    /** @format int64 */
+    id: number;
+    name?: string;
+    /** @format int64 */
+    version: number;
 }
 export interface ICreateScheduleItemResponse {
     /** @format int64 */
@@ -246,6 +253,7 @@ export declare type ICreateScheduleItemRequest = IScheduleItemInfoDto & {
 };
 export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
     id: number;
+    oldProcessingCenter?: IProcessingCenterDto;
 };
 export interface IUser {
     /** @format int64 */
