@@ -238,6 +238,11 @@ export interface IUpdateRoleRequest {
   permissions?: IRolePermission[];
 }
 
+export interface IGetScheduleResponse {
+  schedule: IScheduleItem[];
+  processingCenters?: IProcessingCenter[];
+}
+
 export type IScheduleItem = IScheduleItemInfoDto & { id: number; createdAt: string; processingCenter?: string };
 
 export interface IScheduleItemInfoDto {
@@ -279,13 +284,6 @@ export enum ScheduleType {
   FreeTime = 4,
 }
 
-export interface ICreateScheduleItemResponse {
-  /** @format int64 */
-  id: number;
-}
-
-export type ICreateScheduleItemRequest = IScheduleItemInfoDto & { id?: number; processingCenter?: IProcessingCenter };
-
 export interface IProcessingCenter {
   /** @format int64 */
   id: number;
@@ -294,6 +292,13 @@ export interface IProcessingCenter {
   /** @format int64 */
   version: number;
 }
+
+export interface ICreateScheduleItemResponse {
+  /** @format int64 */
+  id: number;
+}
+
+export type ICreateScheduleItemRequest = IScheduleItemInfoDto & { id?: number; processingCenter?: IProcessingCenter };
 
 export type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
   id: number;
