@@ -203,7 +203,7 @@ export interface IUpdateRoleRequest {
 }
 export interface IGetScheduleResponse {
     schedule: IScheduleItem[];
-    processingCenters?: IProcessingCenter[];
+    processingCenters: IProcessingCenter[];
 }
 export declare type IScheduleItem = IScheduleItemInfoDto & {
     id: number;
@@ -257,6 +257,11 @@ export declare type ICreateScheduleItemRequest = IScheduleItemInfoDto & {
     id?: number;
     processingCenter?: IProcessingCenter;
 };
+export interface IDeleteScheduleItemRequest {
+    /** @format int64 */
+    id: number;
+    processingCenter?: IProcessingCenter;
+}
 export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
     id: number;
     oldProcessingCenter?: IProcessingCenter;
