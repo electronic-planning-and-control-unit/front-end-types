@@ -299,7 +299,10 @@ export interface ICreateScheduleItemResponse {
   id: number;
 }
 
-export type ICreateScheduleItemRequest = IScheduleItemInfoDto & { id?: number; processingCenter?: IProcessingCenter };
+export type ICreateScheduleItemRequest = IScheduleItemInfoDto & {
+  id?: number;
+  newProcessingCenter?: IProcessingCenter;
+};
 
 export interface IDeleteScheduleItemRequest {
   /** @format int64 */
@@ -312,6 +315,24 @@ export type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
   oldProcessingCenter?: IProcessingCenter;
   newProcessingCenter?: IProcessingCenter;
 };
+
+export interface ICreateScheduleItemFromQueueRequest {
+  /** @format int64 */
+  id: number;
+
+  /** @format date-time */
+  operationDate: string;
+  processingCenter?: IProcessingCenter;
+}
+
+export interface ISplitScheduleItemRequest {
+  /** @format int64 */
+  id: number;
+
+  /** @format int32 */
+  duration: number;
+  newProcessingCenter?: IProcessingCenter;
+}
 
 export interface IUser {
   /** @format int64 */
