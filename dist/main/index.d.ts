@@ -8,7 +8,9 @@ export declare enum ApplicationErrorCode {
     Conflict = 1003,
     InternalServerError = 1004,
     OrderScheduled = 1007,
-    OrderHasNotCompletedScheduleItems = 1008
+    OrderHasNotCompletedScheduleItems = 1008,
+    OperationCanNotBeFixed = 1009,
+    OperationCanNotBeUnfixed = 1010
 }
 export interface ISecurityTokens {
     accessToken?: string;
@@ -186,7 +188,8 @@ export declare enum PermissionObject {
     ScheduleFunctionPosition = 302,
     ScheduleFunctionDuration = 303,
     ScheduleFunctionMarkCompleted = 304,
-    ScheduleFunctionSplit = 305
+    ScheduleFunctionSplit = 305,
+    ScheduleFunctionPinUnpin = 306
 }
 export interface ICreateRoleResponse {
     /** @format int64 */
@@ -214,6 +217,7 @@ export interface IScheduleItemInfoDto {
     /** @format int64 */
     orderId?: number;
     completed: boolean;
+    isFixed: boolean;
     scheduleType: ScheduleType;
     duration: number;
     /** @format date-time */
@@ -267,6 +271,10 @@ export declare type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
     oldProcessingCenter?: IProcessingCenter;
     newProcessingCenter?: IProcessingCenter;
 };
+export interface ICreateScheduleItemFromQueueResponse {
+    /** @format int64 */
+    id: number;
+}
 export interface ICreateScheduleItemFromQueueRequest {
     /** @format int64 */
     id: number;
@@ -274,10 +282,13 @@ export interface ICreateScheduleItemFromQueueRequest {
     operationDate: string;
     processingCenter?: IProcessingCenter;
 }
+export interface ISplitScheduleItemResponse {
+    /** @format int64 */
+    id: number;
+}
 export interface ISplitScheduleItemRequest {
     /** @format int64 */
     id: number;
-    /** @format int32 */
     duration: number;
     newProcessingCenter?: IProcessingCenter;
 }

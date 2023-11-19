@@ -9,6 +9,8 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["InternalServerError"] = 1004] = "InternalServerError";
     ApplicationErrorCode[ApplicationErrorCode["OrderScheduled"] = 1007] = "OrderScheduled";
     ApplicationErrorCode[ApplicationErrorCode["OrderHasNotCompletedScheduleItems"] = 1008] = "OrderHasNotCompletedScheduleItems";
+    ApplicationErrorCode[ApplicationErrorCode["OperationCanNotBeFixed"] = 1009] = "OperationCanNotBeFixed";
+    ApplicationErrorCode[ApplicationErrorCode["OperationCanNotBeUnfixed"] = 1010] = "OperationCanNotBeUnfixed";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var MaterialsWorkpieceType;
 (function (MaterialsWorkpieceType) {
@@ -60,6 +62,7 @@ var PermissionObject;
     PermissionObject[PermissionObject["ScheduleFunctionDuration"] = 303] = "ScheduleFunctionDuration";
     PermissionObject[PermissionObject["ScheduleFunctionMarkCompleted"] = 304] = "ScheduleFunctionMarkCompleted";
     PermissionObject[PermissionObject["ScheduleFunctionSplit"] = 305] = "ScheduleFunctionSplit";
+    PermissionObject[PermissionObject["ScheduleFunctionPinUnpin"] = 306] = "ScheduleFunctionPinUnpin";
 })(PermissionObject = exports.PermissionObject || (exports.PermissionObject = {}));
 var ScheduleType;
 (function (ScheduleType) {

@@ -10,6 +10,8 @@ export enum ApplicationErrorCode {
   InternalServerError = 1004,
   OrderScheduled = 1007,
   OrderHasNotCompletedScheduleItems = 1008,
+  OperationCanNotBeFixed = 1009,
+  OperationCanNotBeUnfixed = 1010,
 }
 
 export interface ISecurityTokens {
@@ -221,6 +223,7 @@ export enum PermissionObject {
   ScheduleFunctionDuration = 303,
   ScheduleFunctionMarkCompleted = 304,
   ScheduleFunctionSplit = 305,
+  ScheduleFunctionPinUnpin = 306,
 }
 
 export interface ICreateRoleResponse {
@@ -250,6 +253,7 @@ export interface IScheduleItemInfoDto {
   /** @format int64 */
   orderId?: number;
   completed: boolean;
+  isFixed: boolean;
   scheduleType: ScheduleType;
   duration: number;
 
@@ -316,6 +320,11 @@ export type IUpdateScheduleItemRequest = IScheduleItemInfoDto & {
   newProcessingCenter?: IProcessingCenter;
 };
 
+export interface ICreateScheduleItemFromQueueResponse {
+  /** @format int64 */
+  id: number;
+}
+
 export interface ICreateScheduleItemFromQueueRequest {
   /** @format int64 */
   id: number;
@@ -325,11 +334,14 @@ export interface ICreateScheduleItemFromQueueRequest {
   processingCenter?: IProcessingCenter;
 }
 
+export interface ISplitScheduleItemResponse {
+  /** @format int64 */
+  id: number;
+}
+
 export interface ISplitScheduleItemRequest {
   /** @format int64 */
   id: number;
-
-  /** @format int32 */
   duration: number;
   newProcessingCenter?: IProcessingCenter;
 }
