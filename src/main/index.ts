@@ -12,6 +12,8 @@ export enum ApplicationErrorCode {
   OrderHasNotCompletedScheduleItems = 1008,
   OperationCanNotBeFixed = 1009,
   OperationCanNotBeUnfixed = 1010,
+  OperationOverlap = 1011,
+  ViolationOfScheduleRequirements = 1012,
 }
 
 export interface ISecurityTokens {

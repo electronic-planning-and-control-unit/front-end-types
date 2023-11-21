@@ -10,7 +10,9 @@ export declare enum ApplicationErrorCode {
     OrderScheduled = 1007,
     OrderHasNotCompletedScheduleItems = 1008,
     OperationCanNotBeFixed = 1009,
-    OperationCanNotBeUnfixed = 1010
+    OperationCanNotBeUnfixed = 1010,
+    OperationOverlap = 1011,
+    ViolationOfScheduleRequirements = 1012
 }
 export interface ISecurityTokens {
     accessToken?: string;

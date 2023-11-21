@@ -11,6 +11,8 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["OrderHasNotCompletedScheduleItems"] = 1008] = "OrderHasNotCompletedScheduleItems";
     ApplicationErrorCode[ApplicationErrorCode["OperationCanNotBeFixed"] = 1009] = "OperationCanNotBeFixed";
     ApplicationErrorCode[ApplicationErrorCode["OperationCanNotBeUnfixed"] = 1010] = "OperationCanNotBeUnfixed";
+    ApplicationErrorCode[ApplicationErrorCode["OperationOverlap"] = 1011] = "OperationOverlap";
+    ApplicationErrorCode[ApplicationErrorCode["ViolationOfScheduleRequirements"] = 1012] = "ViolationOfScheduleRequirements";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var MaterialsWorkpieceType;
 (function (MaterialsWorkpieceType) {
