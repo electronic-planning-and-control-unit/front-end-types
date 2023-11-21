@@ -214,6 +214,9 @@ export declare type IScheduleItem = IScheduleItemInfoDto & {
     id: number;
     createdAt: string;
     processingCenter?: string;
+    materialsSuppliedOverdue: boolean;
+    preparationControlProgramOverdue: boolean;
+    orderShipmentOverdue: boolean;
 };
 export interface IScheduleItemInfoDto {
     /** @format int64 */
