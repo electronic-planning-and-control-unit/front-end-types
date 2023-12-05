@@ -154,14 +154,14 @@ export type IUpdateOrderCommand = IOrderInfoDto & { id: number };
 
 export type IOrderHistoryItem = IOrderInfoDto & {
   id: number;
-  createdAt: string;
-  createdById: number;
   scheduled: boolean;
   scheduleCompleted: boolean;
   workStartPoint?: string;
-  versionWarningType: VersionWarningType;
   changedColumns?: string[];
   modifiedBy?: string;
+  createdAt: string;
+  createdById: number;
+  versionWarningType: VersionWarningType;
 };
 
 export enum VersionWarningType {
@@ -252,6 +252,7 @@ export interface IGetScheduleResponse {
 export type IScheduleItem = IScheduleItemInfoDto & {
   id: number;
   createdAt: string;
+  modifiedAt: string;
   processingCenter?: string;
   materialsSuppliedOverdue: boolean;
   preparationControlProgramOverdue: boolean;
@@ -305,6 +306,9 @@ export interface IProcessingCenter {
 
   /** @format int64 */
   version: number;
+
+  /** @format date-time */
+  lastRecordEnd?: string;
 }
 
 export interface ICreateScheduleItemResponse {
