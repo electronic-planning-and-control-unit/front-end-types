@@ -308,7 +308,7 @@ export interface IProcessingCenter {
   version: number;
 
   /** @format date-time */
-  lastRecordEnd?: string;
+  lastRecordEnd: string;
 }
 
 export interface ICreateScheduleItemResponse {

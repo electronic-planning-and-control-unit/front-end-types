@@ -259,7 +259,7 @@ export interface IProcessingCenter {
     /** @format int64 */
     version: number;
     /** @format date-time */
-    lastRecordEnd?: string;
+    lastRecordEnd: string;
 }
 export interface ICreateScheduleItemResponse {
     /** @format int64 */
