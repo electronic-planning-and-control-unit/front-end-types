@@ -39,6 +39,18 @@ export interface IRefreshTokenRequest {
   refreshToken: string;
 }
 
+export enum EmailType {
+  None = 0,
+  MaterialProvision = 1,
+  StampingProvision = 2,
+  MetalProvision = 3,
+  CuttingCompleted = 4,
+  HeatTreatmentCompleted = 5,
+  OperationCompleted = 6,
+  ExternalCooperationCompleted = 7,
+  ReadyForShipment = 8,
+}
+
 export type IOrder = IOrderInfoDto & {
   id: number;
   createdAt: string;
@@ -50,6 +62,7 @@ export type IOrder = IOrderInfoDto & {
 
 export interface IOrderInfoDto {
   completed: boolean;
+  shipped: boolean;
   queued: boolean;
 
   /** @format date-time */
@@ -219,6 +232,7 @@ export enum PermissionObject {
   OrdersComments = 160,
   OrderFunctionAddToTimeline = 200,
   OrderFunctionMarkCompleted = 201,
+  OrderFunctionMarkShipped = 202,
   ScheduleCreateFromQueue = 300,
   ScheduleCreateManually = 301,
   ScheduleFunctionPosition = 302,

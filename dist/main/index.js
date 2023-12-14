@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ScheduleType = exports.PermissionObject = exports.Permission = exports.VersionWarningType = exports.MaterialsWorkpieceType = exports.ApplicationErrorCode = void 0;
+exports.ScheduleType = exports.PermissionObject = exports.Permission = exports.VersionWarningType = exports.MaterialsWorkpieceType = exports.EmailType = exports.ApplicationErrorCode = void 0;
 var ApplicationErrorCode;
 (function (ApplicationErrorCode) {
     ApplicationErrorCode[ApplicationErrorCode["BadRequest"] = 1000] = "BadRequest";
@@ -14,6 +14,18 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["OperationOverlap"] = 1011] = "OperationOverlap";
     ApplicationErrorCode[ApplicationErrorCode["ViolationOfScheduleRequirements"] = 1012] = "ViolationOfScheduleRequirements";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
+var EmailType;
+(function (EmailType) {
+    EmailType[EmailType["None"] = 0] = "None";
+    EmailType[EmailType["MaterialProvision"] = 1] = "MaterialProvision";
+    EmailType[EmailType["StampingProvision"] = 2] = "StampingProvision";
+    EmailType[EmailType["MetalProvision"] = 3] = "MetalProvision";
+    EmailType[EmailType["CuttingCompleted"] = 4] = "CuttingCompleted";
+    EmailType[EmailType["HeatTreatmentCompleted"] = 5] = "HeatTreatmentCompleted";
+    EmailType[EmailType["OperationCompleted"] = 6] = "OperationCompleted";
+    EmailType[EmailType["ExternalCooperationCompleted"] = 7] = "ExternalCooperationCompleted";
+    EmailType[EmailType["ReadyForShipment"] = 8] = "ReadyForShipment";
+})(EmailType = exports.EmailType || (exports.EmailType = {}));
 var MaterialsWorkpieceType;
 (function (MaterialsWorkpieceType) {
     MaterialsWorkpieceType[MaterialsWorkpieceType["Rolling"] = 1] = "Rolling";
@@ -58,6 +70,7 @@ var PermissionObject;
     PermissionObject[PermissionObject["OrdersComments"] = 160] = "OrdersComments";
     PermissionObject[PermissionObject["OrderFunctionAddToTimeline"] = 200] = "OrderFunctionAddToTimeline";
     PermissionObject[PermissionObject["OrderFunctionMarkCompleted"] = 201] = "OrderFunctionMarkCompleted";
+    PermissionObject[PermissionObject["OrderFunctionMarkShipped"] = 202] = "OrderFunctionMarkShipped";
     PermissionObject[PermissionObject["ScheduleCreateFromQueue"] = 300] = "ScheduleCreateFromQueue";
     PermissionObject[PermissionObject["ScheduleCreateManually"] = 301] = "ScheduleCreateManually";
     PermissionObject[PermissionObject["ScheduleFunctionPosition"] = 302] = "ScheduleFunctionPosition";
