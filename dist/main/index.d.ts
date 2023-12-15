@@ -46,7 +46,7 @@ export declare enum EmailType {
 export declare type IOrder = IOrderInfoDto & {
     id: number;
     createdAt: string;
-    numberOfRowChanges: number;
+    modifiedAt: string;
     scheduled: boolean;
     scheduleCompleted: boolean;
     workStartPoint?: string;
