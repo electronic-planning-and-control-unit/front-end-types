@@ -64,6 +64,7 @@ export interface IOrderInfoDto {
   completed: boolean;
   shipped: boolean;
   queued: boolean;
+  positionType?: PositionType;
 
   /** @format date-time */
   releasedToWarehouseAt?: string;
@@ -88,6 +89,7 @@ export interface IOrderInfoDto {
   techElaborationBlueprintsAvailable: boolean;
   materialsMetalGrade?: string;
   materialsWorkpieceType?: MaterialsWorkpieceType;
+  manualMaterialsWorkpieceType?: string;
   materialsNomenclature?: string;
   materialsCrossSection?: string;
   materialsWeight?: number;
@@ -146,6 +148,11 @@ export interface IOrderInfoDto {
 
   /** @format date-time */
   externalCooperationArrivedIntoWarehouseAt?: string;
+}
+
+export enum PositionType {
+  Purchase = 1,
+  Production = 2,
 }
 
 export enum MaterialsWorkpieceType {
