@@ -85,6 +85,7 @@ export interface IOrderInfoDto {
   techElaborationHeatTreatment: boolean;
   techElaborationStellite: boolean;
   techElaborationSpecialContainer: boolean;
+  techElaborationBlueprintsAvailable: boolean;
   materialsMetalGrade?: string;
   materialsWorkpieceType?: MaterialsWorkpieceType;
   materialsNomenclature?: string;
