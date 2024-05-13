@@ -4,6 +4,7 @@ exports.ScheduleType = exports.PermissionObject = exports.Permission = exports.V
 var ApplicationErrorCode;
 (function (ApplicationErrorCode) {
     ApplicationErrorCode[ApplicationErrorCode["BadRequest"] = 1000] = "BadRequest";
+    ApplicationErrorCode[ApplicationErrorCode["EntityIsInUse"] = 1001] = "EntityIsInUse";
     ApplicationErrorCode[ApplicationErrorCode["Unauthorized"] = 1002] = "Unauthorized";
     ApplicationErrorCode[ApplicationErrorCode["Conflict"] = 1003] = "Conflict";
     ApplicationErrorCode[ApplicationErrorCode["InternalServerError"] = 1004] = "InternalServerError";
@@ -16,6 +17,8 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["MaxLoginAttemptsReached"] = 1013] = "MaxLoginAttemptsReached";
     ApplicationErrorCode[ApplicationErrorCode["EntityNotFound"] = 1014] = "EntityNotFound";
     ApplicationErrorCode[ApplicationErrorCode["MaxResetAttemptsReached"] = 1015] = "MaxResetAttemptsReached";
+    ApplicationErrorCode[ApplicationErrorCode["CanNotDeleteAdminRole"] = 1016] = "CanNotDeleteAdminRole";
+    ApplicationErrorCode[ApplicationErrorCode["DuplicateEntity"] = 1017] = "DuplicateEntity";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var EmailType;
 (function (EmailType) {

@@ -4,6 +4,7 @@ export interface IApplicationError {
 }
 export declare enum ApplicationErrorCode {
     BadRequest = 1000,
+    EntityIsInUse = 1001,
     Unauthorized = 1002,
     Conflict = 1003,
     InternalServerError = 1004,
@@ -15,7 +16,9 @@ export declare enum ApplicationErrorCode {
     ViolationOfScheduleRequirements = 1012,
     MaxLoginAttemptsReached = 1013,
     EntityNotFound = 1014,
-    MaxResetAttemptsReached = 1015
+    MaxResetAttemptsReached = 1015,
+    CanNotDeleteAdminRole = 1016,
+    DuplicateEntity = 1017
 }
 export interface ISecurityTokens {
     accessToken?: string;
@@ -244,7 +247,7 @@ export interface ICreateRoleRequest {
 export interface IUpdateRoleRequest {
     /** @format int64 */
     id: number;
-    name?: string;
+    name: string;
     permissions?: IRolePermission[];
 }
 export interface IGetScheduleResponse {
