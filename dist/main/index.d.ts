@@ -368,6 +368,7 @@ export interface IUserListItem {
     email: string;
     firstName: string;
     lastName: string;
+    active: boolean;
     roles?: IRole[];
 }
 export interface IUpdateMyProfileRequest {
@@ -379,16 +380,18 @@ export interface IUpdateUserRequest {
     /** @format int64 */
     id: number;
     /** @format int64 */
-    publicId: number;
+    publicId?: number;
     firstName: string;
+    email: string;
     lastName: string;
     roleIds?: number[];
     active: boolean;
 }
 export interface ICreateUserRequest {
-    /** @format int64 */
-    publicId: number;
     firstName: string;
     lastName: string;
+    /** @format int64 */
+    publicId?: number;
+    email: string;
     roleIds?: number[];
 }
