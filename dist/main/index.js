@@ -13,6 +13,9 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["OperationCanNotBeUnfixed"] = 1010] = "OperationCanNotBeUnfixed";
     ApplicationErrorCode[ApplicationErrorCode["OperationOverlap"] = 1011] = "OperationOverlap";
     ApplicationErrorCode[ApplicationErrorCode["ViolationOfScheduleRequirements"] = 1012] = "ViolationOfScheduleRequirements";
+    ApplicationErrorCode[ApplicationErrorCode["MaxLoginAttemptsReached"] = 1013] = "MaxLoginAttemptsReached";
+    ApplicationErrorCode[ApplicationErrorCode["EntityNotFound"] = 1014] = "EntityNotFound";
+    ApplicationErrorCode[ApplicationErrorCode["MaxResetAttemptsReached"] = 1015] = "MaxResetAttemptsReached";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var EmailType;
 (function (EmailType) {
@@ -25,6 +28,7 @@ var EmailType;
     EmailType[EmailType["OperationCompleted"] = 6] = "OperationCompleted";
     EmailType[EmailType["ExternalCooperationCompleted"] = 7] = "ExternalCooperationCompleted";
     EmailType[EmailType["ReadyForShipment"] = 8] = "ReadyForShipment";
+    EmailType[EmailType["SetPassword"] = 9] = "SetPassword";
 })(EmailType = exports.EmailType || (exports.EmailType = {}));
 var PositionType;
 (function (PositionType) {

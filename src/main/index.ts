@@ -14,6 +14,9 @@ export enum ApplicationErrorCode {
   OperationCanNotBeUnfixed = 1010,
   OperationOverlap = 1011,
   ViolationOfScheduleRequirements = 1012,
+  MaxLoginAttemptsReached = 1013,
+  EntityNotFound = 1014,
+  MaxResetAttemptsReached = 1015,
 }
 
 export interface ISecurityTokens {
@@ -49,6 +52,30 @@ export enum EmailType {
   OperationCompleted = 6,
   ExternalCooperationCompleted = 7,
   ReadyForShipment = 8,
+  SetPassword = 9,
+}
+
+export interface IGetOrderBugsResponse {
+  /** @format int64 */
+  id: number;
+  completed: boolean;
+  orderOrderNumber?: string;
+  orderDetailsBlueprint?: string;
+
+  /** @format date-time */
+  modifiedAt?: string;
+
+  /** @format date-time */
+  releasedToWarehouseAt?: string;
+
+  /** @format date-time */
+  productionReleasedAt?: string;
+
+  /** @format date-time */
+  heatTreatmentShippedFromWarehouseAt?: string;
+
+  /** @format date-time */
+  workStartPoint?: string;
 }
 
 export type IOrder = IOrderInfoDto & {
@@ -386,11 +413,12 @@ export interface IUser {
   id: number;
 
   /** @format int64 */
-  publicId: number;
+  publicId?: number;
   email: string;
   firstName: string;
-  lastName?: string;
+  lastName: string;
   savedFilters?: string;
+  active: boolean;
   permissions?: Record<string, Permission>;
 }
 
@@ -399,10 +427,10 @@ export interface IUserListItem {
   id: number;
 
   /** @format int64 */
-  publicId: number;
+  publicId?: number;
   email: string;
   firstName: string;
-  lastName?: string;
+  lastName: string;
   roles?: IRole[];
 }
 
@@ -416,6 +444,15 @@ export interface IUpdateUserRequest {
   /** @format int64 */
   id: number;
 
+  /** @format int64 */
+  publicId: number;
+  firstName?: string;
+  lastName?: string;
+  roleIds?: number[];
+  active: boolean;
+}
+
+export interface ICreateUserRequest {
   /** @format int64 */
   publicId: number;
   firstName?: string;
