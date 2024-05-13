@@ -373,15 +373,15 @@ export interface IUpdateUserRequest {
     id: number;
     /** @format int64 */
     publicId: number;
-    firstName?: string;
-    lastName?: string;
+    firstName: string;
+    lastName: string;
     roleIds?: number[];
     active: boolean;
 }
 export interface ICreateUserRequest {
     /** @format int64 */
     publicId: number;
-    firstName?: string;
-    lastName?: string;
+    firstName: string;
+    lastName: string;
     roleIds?: number[];
 }
