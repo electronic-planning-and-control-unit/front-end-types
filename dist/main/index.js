@@ -32,6 +32,7 @@ var EmailType;
     EmailType[EmailType["ExternalCooperationCompleted"] = 7] = "ExternalCooperationCompleted";
     EmailType[EmailType["ReadyForShipment"] = 8] = "ReadyForShipment";
     EmailType[EmailType["SetPassword"] = 9] = "SetPassword";
+    EmailType[EmailType["ResetPassword"] = 10] = "ResetPassword";
 })(EmailType = exports.EmailType || (exports.EmailType = {}));
 var PositionType;
 (function (PositionType) {

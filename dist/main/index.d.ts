@@ -52,7 +52,8 @@ export declare enum EmailType {
     OperationCompleted = 6,
     ExternalCooperationCompleted = 7,
     ReadyForShipment = 8,
-    SetPassword = 9
+    SetPassword = 9,
+    ResetPassword = 10
 }
 export interface IGetOrderBugsResponse {
     /** @format int64 */
@@ -351,8 +352,7 @@ export interface ISplitScheduleItemRequest {
 export interface IUser {
     /** @format int64 */
     id: number;
-    /** @format int64 */
-    publicId?: number;
+    publicId?: string;
     email: string;
     firstName: string;
     lastName: string;
@@ -363,8 +363,7 @@ export interface IUser {
 export interface IUserListItem {
     /** @format int64 */
     id: number;
-    /** @format int64 */
-    publicId?: number;
+    publicId?: string;
     email: string;
     firstName: string;
     lastName: string;
@@ -379,8 +378,7 @@ export interface IUpdateMyProfileRequest {
 export interface IUpdateUserRequest {
     /** @format int64 */
     id: number;
-    /** @format int64 */
-    publicId?: number;
+    publicId?: string;
     firstName: string;
     email: string;
     lastName: string;
@@ -390,8 +388,7 @@ export interface IUpdateUserRequest {
 export interface ICreateUserRequest {
     firstName: string;
     lastName: string;
-    /** @format int64 */
-    publicId?: number;
+    publicId?: string;
     email: string;
     roleIds?: number[];
 }
