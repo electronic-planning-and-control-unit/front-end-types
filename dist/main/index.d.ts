@@ -17,8 +17,9 @@ export declare enum ApplicationErrorCode {
     MaxLoginAttemptsReached = 1013,
     EntityNotFound = 1014,
     MaxResetAttemptsReached = 1015,
-    CanNotDeleteAdminRole = 1016,
-    DuplicateEntity = 1017
+    CanNotDeleteEntity = 1016,
+    DuplicateEntity = 1017,
+    CanNotEditEntity = 1018
 }
 export interface ISecurityTokens {
     accessToken?: string;

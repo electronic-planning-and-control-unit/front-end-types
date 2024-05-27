@@ -17,8 +17,9 @@ var ApplicationErrorCode;
     ApplicationErrorCode[ApplicationErrorCode["MaxLoginAttemptsReached"] = 1013] = "MaxLoginAttemptsReached";
     ApplicationErrorCode[ApplicationErrorCode["EntityNotFound"] = 1014] = "EntityNotFound";
     ApplicationErrorCode[ApplicationErrorCode["MaxResetAttemptsReached"] = 1015] = "MaxResetAttemptsReached";
-    ApplicationErrorCode[ApplicationErrorCode["CanNotDeleteAdminRole"] = 1016] = "CanNotDeleteAdminRole";
+    ApplicationErrorCode[ApplicationErrorCode["CanNotDeleteEntity"] = 1016] = "CanNotDeleteEntity";
     ApplicationErrorCode[ApplicationErrorCode["DuplicateEntity"] = 1017] = "DuplicateEntity";
+    ApplicationErrorCode[ApplicationErrorCode["CanNotEditEntity"] = 1018] = "CanNotEditEntity";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var EmailType;
 (function (EmailType) {
